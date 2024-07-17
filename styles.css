@@ -152,8 +152,13 @@
   font-style: normal;
 }
 
+html {
+  /* Smooth scrolling behavior */
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Nueue Montreal Mono-Thin', monospace;
+  font-family: 'Nueue Montreal-Regular', sans-serif;
   font-style: normal;
   line-height: 1.6;
   margin: 0;
@@ -213,7 +218,9 @@ p {
 }
 
 .logo {
-  font-family: 'Editorial-Ultrabold', serif;
+  /* font-family: 'Editorial-Ultrabold', serif; */
+  font-family: 'Editorial', sans-serif;
+  font-weight: 900;
   font-size: 2rem;
 }
 header {
@@ -241,6 +248,11 @@ header {
   padding: 32px 10%;
   max-width: 1600px;
   margin: 0 auto;
+}
+
+.about-section {
+  font-weight: 500;
+  font-size: 2rem;
 }
 
 .container .cards-row {
@@ -435,7 +447,7 @@ header {
 .card{
   position: relative;
   padding: 20px;
-  height: 350px;
+  height: 300px;
   width: 200px;
   border-radius: 5px;
   text-align: center;
