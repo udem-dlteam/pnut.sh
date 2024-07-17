@@ -1,0 +1,18 @@
+<svg width="0" height="0">
+  <defs>
+    <filter id="glass-button-effect" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feComponentTransfer in="blur" result="opacityBlur">
+        <feFuncA type="table" tableValues="0.3 0.5"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="opacityBlur" mode="normal"/>
+    </filter>
+    <filter id="glass-button-hover-effect" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feComponentTransfer in="blur" result="opacityBlur">
+        <feFuncA type="table" tableValues="0.4 0.7"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="opacityBlur" mode="normal"/>
+    </filter>
+  </defs>
+</svg>

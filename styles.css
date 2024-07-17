@@ -1,0 +1,713 @@
+:root[data-theme="dark"] {
+  --background-grain-svg: url('background-grain-dark.svg');
+  --benchmark-grain-svg: url('benchmarks-grain-dark.svg');
+  --hero-background-svg: url('hero.svg');
+  --card-background-svg: url('card-blur-dark.svg');
+  --get-starded-background-hover-svg: url('hero-card-button-dark.svg');
+  --right-overlay-svg: url('hero-right-dark.svg');
+
+  --glass-background: rgba(30, 30, 30, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-hover-background: rgba(50, 50, 50, 0.4);
+  --glass-hover-shadow: rgba(0, 0, 0, 0.5);
+  --glass-glow: rgba(255, 255, 255, 0.3);
+
+  --bg: #080B12;
+  --text: #ebf3fa;
+  --border-grd1: #313131;
+  --border-grd2: #282828;
+  --card-grd1: #414141;
+  --card-grd2: #0d0d0d;
+  --radial-center: rgba(229, 229, 229, 0.3);
+  --radial-edge: rgba(18, 18, 18, 0.3);
+  --shadow: rgba(234, 234, 234, 0.5);
+
+  --text-50: #050e14;
+  --text-100: #0a1b29;
+  --text-200: #143652;
+  --text-300: #1f517a;
+  --text-400: #296ca3;
+  --text-500: #3387cc;
+  --text-600: #5c9fd6;
+  --text-700: #85b7e0;
+  --text-800: #adcfeb;
+  --text-900: #d6e7f5;
+  --text-950: #ebf3fa;
+
+  --background-50: #0d0d0d;
+  --background-100: #1a1a1a;
+  --background-200: #333333;
+  --background-300: #4d4d4d;
+  --background-400: #666666;
+  --background-500: #808080;
+  --background-600: #999999;
+  --background-700: #b3b3b3;
+  --background-800: #cccccc;
+  --background-900: #e6e6e6;
+  --background-950: #f2f2f2;
+
+  --primary-50: #0d0d0c;
+  --primary-100: #1b1a18;
+  --primary-200: #353331;
+  --primary-300: #504d49;
+  --primary-400: #6a6662;
+  --primary-500: #85807a;
+  --primary-600: #9d9995;
+  --primary-700: #b6b3af;
+  --primary-800: #ceccca;
+  --primary-900: #e7e6e4;
+  --primary-950: #f3f2f2;
+
+  --secondary-50: #0d0e0c;
+  --secondary-100: #1a1c17;
+  --secondary-200: #35382e;
+  --secondary-300: #4f5346;
+  --secondary-400: #696f5d;
+  --secondary-500: #838b74;
+  --secondary-600: #9ca290;
+  --secondary-700: #b5b9ac;
+  --secondary-800: #ced1c7;
+  --secondary-900: #e6e8e3;
+  --secondary-950: #f3f3f1;
+
+  --accent-50: #171103;
+  --accent-100: #2e2205;
+  --accent-200: #5b430b;
+  --accent-300: #896510;
+  --accent-400: #b78615;
+  --accent-500: #e4a81b;
+  --accent-600: #eab948;
+  --accent-700: #efcb76;
+  --accent-800: #f4dca4;
+  --accent-900: #faeed1;
+  --accent-950: #fcf6e8;
+
+  --linearBackPrimary: linear-gradient(#5c9fd6, #0d0d0d);
+  --linearTextPrimary: linear-gradient(#1f517a, #9ca290);
+  --linearAccentText: linear-gradient(#eab948, #5c9fd6);
+  --linearPrimarySecondary: linear-gradient(#dfe1db, #504d49);
+  --linearPrimaryAccent: linear-gradient(#e6af2d, #504d49);
+  --linearSecondaryAccent: linear-gradient(#e6af2d, #dfe1db);
+  --radialPrimarySecondary: radial-gradient(#dfe1db, #504d49);
+  --radialPrimaryAccent: radial-gradient(#e6af2d, #504d49);
+  --radialSecondaryAccent: radial-gradient(#e6af2d, #dfe1db);
+}
+
+/* Editorial regular */
+@font-face {
+  font-family: 'Editorial';
+  src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Editorial light */
+@font-face {
+  font-family: 'Editorial-Light';
+  src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Editorial-UltraLight';
+  src: url('fonts/PPEditorialNew-Ultralight.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Editorial-Ultrabold';
+  src: url('fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('fonts/NeueMontreal-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Montreal-Light';
+  src: url('fonts/NeueMontreal-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Montreal Mono';
+  src: url('fonts/PPNeueMontrealMono-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Montreal Mono-Thin';
+  src: url('fonts/PPNeueMontrealMono-Thin.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Nueue Montreal Mono-Thin', monospace;
+  font-style: normal;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-50);
+  color: var(--text-950);
+  background: var(--background-grain-svg) no-repeat center center / cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Editorial-light', serif;
+  font-size: 8rem;
+  font-weight: 300; /* Use 300 for light */
+  font-style: normal;
+  margin: 0 0 10px 0;
+}
+
+h2 {
+  font-family: 'Editorial', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 0 10px 0;
+}
+
+h3, h4, h5, h6{
+  font-family: 'Neue Montreal', sans-serif;
+  font-style: normal;
+  margin: 0 0 10px 0;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.logo {
+  font-family: 'Editorial-Ultrabold', serif;
+  font-size: 2rem;
+}
+header {
+  background-color: var(--background-50);
+  backdrop-filter: blur(10px);
+  transition: backdrop-filter 0.3s;
+  background: var(--background-grain-svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 10%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 10%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.container .cards-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.animate-character {
+  background-image: linear-gradient(
+    -225deg,
+    var(--text-950) 0%,
+    var(--background-800) 29%,
+    var(--background-400) 67%,
+    var(--text-950) 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+}
+
+.nav-links a {
+  font-family: 'Neue Montreal-Light', sans-serif;
+  font-style: normal;
+  margin: 0 0 10px 0;
+  text-decoration: none;
+  color: var(--text-950);
+  padding: 5px 10px;
+  border-bottom: transparent;
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: var(--background-400);
+  border-bottom: var(--text-950) 1px solid;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10%;
+  padding: 5%; /* Reduced padding for a smaller hero section */
+  background: var(--hero-background-svg) no-repeat center center / cover;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  border-radius: 5px; /* Rounded rectangle */
+  max-width: 80%; /* Set a maximum width */
+  margin: 0 auto; /* Center the hero section */
+  height: 64vh; /* Reduced height */
+}
+
+.hero.hidden {
+  opacity: 0;
+}
+
+.hero-left {
+  flex: 1;
+  padding-left: 10%; /* Remove padding to align left text to the left */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the start (left) */
+  height: 100%; /* Ensure it takes full height of the hero */
+}
+
+.hero-left h1 {
+  font-size: 7rem;
+  font-family: 'Editorial-light', serif;
+  font-weight: 200;
+  padding: 0;
+  /* margin-bottom: 0.5rem; Adjusted margin for better spacing */
+}
+
+.hero-left h2 {
+  font-family: 'Editorial-Ultralight', serif;
+  font-size: 2rem;
+  font-weight: 200;
+  margin-top: 0rem; /* Adjusted margin to bring the text closer */
+  margin-bottom: 2rem; /* Adjusted margin for better spacing */
+}
+
+.hero-right {
+  position: absolute;
+  top: 50%;
+  right: 5%; /* Moved further to the right */
+  transform: translateY(-50%);
+  background: var(--right-overlay-svg) no-repeat center center / cover;
+  padding: 30px; /* Increased padding for a larger overlay */
+  border-radius: 5px; /* Slightly larger border radius */
+  max-width: 400px; /* Increased max-width */
+  color: white; /* Text color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Add some shadow for better separation */
+}
+
+.hero-right h2 {
+  font-size: 1.75rem; /* Increased font size */
+  margin-bottom: 15px;
+}
+
+.hero-right p {
+  font-size: 1.25rem; /* Increased font size */
+  margin-bottom: 25px;
+}
+
+.hero-right .btn-glass {
+  display: block;
+  margin: 0 auto; /* Center the button */
+  width: 40%;
+  height: 32%;
+}
+
+.btn-glass {
+  font-family: 'Neue Montreal', sans-serif;
+  position: relative; /* For inner shadow positioning */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  border-radius: 2.5px; /* Rounded corners */
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  transition: background 0.3s, transform 0.3s, backdrop-filter 0.3s, box-shadow 0.3s, background 0.3s;
+  color: var(--text-950);
+  background: var(--glass-background); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border: 1px solid var(--glass-border); /* Subtle border */
+  box-shadow: 0 4px 6px var(--glass-shadow); /* Soft shadow for depth */
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* box-shadow: 0 8px 16px var(--glass-shadow), 0 10px 30px var(--glass-glow); */
+  box-shadow: 0 0 5px 0px rgba(255, 255, 255, 0.2) inset, 0 5px 5px rgba(255, 255, 255, 0.2) inset;
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+}
+
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2px;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.4), 0 0 5px rgba(147, 147, 147, 0.2); /* Inner shadow */
+  pointer-events: none; /* So it doesn't interfere with button interactions */
+}
+
+.btn-glass:hover {
+  transform: translateY(-5px);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1), 0 0 5px rgba(147, 147, 147, 0.1), 0 8px 16px var(--glass-hover-shadow), 0 0 5px 0px rgba(255, 255, 255, 0.2) inset, 0 5px 5px rgba(255, 255, 255, 0.2) inset;;
+}
+
+
+.content {
+  padding: 10px 10%;
+  background-color: var(--background-50);
+}
+
+.cards-row {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 60px; /* Adjust gap as needed */
+  /* padding: 24px 5%; */
+  max-width: 80%;
+  margin: 0 auto;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.card{
+  position: relative;
+  padding: 20px;
+  height: 350px;
+  width: 200px;
+  border-radius: 5px;
+  text-align: center;
+  flex: 1;
+  color: var(--text-950);
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  background: var(--glass-background); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border: 1px solid var(--glass-border); /* Subtle border */
+  box-shadow: 0 4px 6px var(--glass-shadow); /* Soft shadow for depth */
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--glass-hover-shadow); /* Enhanced shadow and glow on hover */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2); /* Inner shadow */
+  pointer-events: none; /* So it doesn't interfere with card interactions */
+}
+
+.card-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+@keyframes borderGrow {
+  from {
+    width: 45%;
+  }
+  to {
+    width: 75%;
+  }
+}
+
+.card-header h5 {
+  font-family: 'Editorial-light', serif;
+  border-bottom: var(--text-950) .5px solid;
+  display: inline-block; /* Ensure the element is inline-block for the width to work */
+  width: 45%; /* Initial width */
+  transition: width 0.3s; /* Smooth transition */
+}
+
+.card-header h5:hover {
+  animation: borderGrow 2s forwards; /* Apply the animation on hover */
+  width: 75%; /* Final width */
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Commodore 64 monitor styling */
+.commodore-container {
+  position: relative;
+  width: 640px;
+  height: 640px;
+  margin: 0 auto; /* Center the container */
+}
+
+.commodore-container h4 {
+  border-bottom: var(--text-950) 1px solid;
+  width: 20%;
+}
+
+.commodore-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.square-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 650px; /* Adjust width to fit inside the monitor screen */
+  height: 450px; /* Adjust height to fit inside the monitor screen */
+  border-radius: 10px;
+  text-align: center;
+  color: var(--text-950);
+  backdrop-filter: blur(10px); /* Blur effect */
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  background: var(--glass-background); /* Semi-transparent background */
+  border: 1px solid var(--glass-border); /* Subtle border */
+  box-shadow: 0 4px 6px var(--glass-shadow); /* Soft shadow for depth */
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 16px var(--glass-shadow), 0 10px 30px var(--glass-glow);
+  box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2) inset, 0 10px 10px rgba(255, 255, 255, 0.2) inset;
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+}
+
+.square-card-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.square-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure content is centered vertically */
+}
+
+@media (max-width: 768px) {
+  .commodore-container {
+    width: 100%;
+    height: auto;
+  }
+  .square-card {
+    width: 90%; /* Adjust for smaller screens */
+    height: auto; /* Adjust for smaller screens */
+  }
+}
+
+.large-card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  color: var(--text-950);
+  transition: transform 0.3s;
+  background: var(--benchmark-grain-svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.large-card {
+  flex: 1 1 100%;
+}
+
+.large-card:hover {
+  transform: translateY(-5px);
+  /*box shadow and  glow effect from below and bottom */
+  box-shadow: 0 8px 16px var(--glass-shadow), 0 10px 30px var(--glass-glow);
+  /*add inner glow just in bottom of the card */
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2) inset;
+}
+
+.large-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.large-card p {
+  font-size: 1rem;
+}
+
+.benchmarks-card {
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  flex: 1;
+  color: var(--text-950);
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  background: var(--glass-background); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border: 1px solid var(--glass-border); /* Subtle border */
+  box-shadow: 0 4px 6px var(--glass-shadow); /* Soft shadow for depth */
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+}
+
+.benchmarks-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--glass-hover-shadow); /* Enhanced shadow and glow on hover */
+}
+
+.benchmarks-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2); /* Inner shadow */
+  pointer-events: none; /* So it doesn't interfere with card interactions */
+}
+
+.benchmarks-card-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.benchmarks-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-section {
+  flex: 1;
+  padding: 10px;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.text-section {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+  color: var(--text-950);
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-left {
+    margin: 20px 0;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .cards-row {
+    flex-direction: column;
+  }
+
+  .card, .large-card {
+    width: 100%;
+  }
+
+  .benchmarks-card {
+    flex-direction: column;
+  }
+
+  .benchmarks-content {
+    flex-direction: column;
+  }
+}
+
+.footer-left {
+  font-family: 'Neue Montreal-Light', sans-serif;
+  font-style: normal;
+  margin: 0 0 10px 0;
+}
