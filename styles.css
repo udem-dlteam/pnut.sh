@@ -325,7 +325,7 @@ header {
   border-radius: 5px; /* Rounded rectangle */
   max-width: 80%; /* Set a maximum width */
   margin: 0 auto; /* Center the hero section */
-  height: 64vh; /* Reduced height */
+  /* height: 64vh; Reduced height */
 }
 
 .hero.hidden {
@@ -448,7 +448,7 @@ header {
   position: relative;
   padding: 20px;
   height: 300px;
-  width: 200px;
+  width: 300px;
   border-radius: 5px;
   text-align: center;
   flex: 1;
@@ -496,7 +496,7 @@ header {
   font-family: 'Editorial-light', serif;
   border-bottom: var(--text-950) .5px solid;
   display: inline-block; /* Ensure the element is inline-block for the width to work */
-  width: 45%; /* Initial width */
+  width: 65%; /* Initial width */
   transition: width 0.3s; /* Smooth transition */
 }
 
