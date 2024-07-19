@@ -479,7 +479,7 @@ header {
 }
 
 .card-header {
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -496,11 +496,11 @@ header {
   font-family: 'Editorial-light', serif;
   border-bottom: var(--text-950) .5px solid;
   display: inline-block; /* Ensure the element is inline-block for the width to work */
-  width: 65%; /* Initial width */
+  width: 70%; /* Initial width */
   transition: width 0.3s; /* Smooth transition */
 }
 
-.card-header h5:hover {
+.card-header .card:hover {
   animation: borderGrow 2s forwards; /* Apply the animation on hover */
   width: 75%; /* Final width */
 }
@@ -509,25 +509,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-/* Commodore 64 monitor styling */
-.commodore-container {
-  position: relative;
-  width: 640px;
-  height: 640px;
-  margin: 0 auto; /* Center the container */
-}
-
-.commodore-container h4 {
-  border-bottom: var(--text-950) 1px solid;
-  width: 20%;
-}
-
-.commodore-image {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .square-card {
@@ -566,10 +547,6 @@ header {
 }
 
 @media (max-width: 768px) {
-  .commodore-container {
-    width: 100%;
-    height: auto;
-  }
   .square-card {
     width: 90%; /* Adjust for smaller screens */
     height: auto; /* Adjust for smaller screens */
@@ -716,6 +693,74 @@ header {
   .benchmarks-content {
     flex-direction: column;
   }
+}
+
+
+.editor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.editor, .compiler {
+  flex: 1;
+  margin: 0 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background: var(--glass-background); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+}
+
+.editor .header, .compiler .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: var(--glass-background); /* Semi-transparent background */
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.editor .header button, .compiler .header button {
+  background: transparent;
+  border: 0.5px var(--glass-border) solid;
+  border-radius: 4px;
+  margin-right: 0;
+  cursor: pointer;
+  color: var(--text-950);
+}
+
+.editor .header button:hover, .compiler .header button:hover {
+  background: var(--glass-hover-background); /* Semi-transparent background */
+  box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+}
+
+textarea {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: 'Neue Montreal Mono', monospace;
+  resize: none;
+  background: #000000;
+  color: #ffae00; /* OG light amber */
+}
+
+.compile-button {
+  padding: 10px;
+  background: var(--glass-background); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  color: var(--text-950);
+}
+
+.compile-button:hover {
+  background: var(--glass-hover-background); /* Semi-transparent background */
+  box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
 }
 
 .footer-left {

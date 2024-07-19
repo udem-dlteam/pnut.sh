@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
 </head>
 <body>
     <header>
@@ -24,13 +26,13 @@
     <section class="hero" id="hero">
         <div class="hero-left">
             <h1>Pnut.</h1>
-            <h2>A C to POSIX Shell Compiler you can trust</h2>
+            <h2>A C to POSIX Shell Compiler <br> you can <u>Trust</u></h2>
         </div>
         <div class="container">
             <div>
                 <div class="hero-right" id="right-text-overlay">
-                    <h2>A C to POSIX Shell Compiler</h2>
-                    <p>Write portable shell scripts directly in C, no shell scripting required.</p>
+                    <h2>Write portable shell scripts <br> directly in C</h2>
+                    <p>No shell scripting required.</p>
                     <button class="btn-glass">Get Started</button>
                 </div>
             </div>
@@ -53,13 +55,13 @@
                 </p>
                 <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="code.png" alt="Write Image">
             </div>
-            <div class="card" style="overflow: hidden;">
+            <div class="card" style="overflow: hidden; height: 400px;">
                 <div class="card-header">
                     <h5>Human readable</h5>
                 </div>
                 <p>
                     Pnut's output is designed to be human-readable, making it
-                    easy to inspect, debug and maintain the code.
+                    easy to inspect, debug and maintain code.
                 </p>
                 <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="code-shell.png" alt="Compile Image">
             </div>
@@ -77,8 +79,25 @@
     </div>
     <div class="container"></div>
     <section class="content">
-        <div class="commodore-container">
-            <h4 style="font-family: 'Editorial-Light';">Try us out</h4>
+        <h4 class="container" style="font-family: 'Editorial-Light';">Try us out</h4>
+        <div class="container">
+            <div class="editor-container">
+                <div class="editor">
+                    <div class="header">
+                        <span>Text Editor</span>
+                        <button class="copy-button" id="copyButton">Copy</button>
+                    </div>
+                    <textarea id="code" name="code" placeholder="int main() { }"></textarea>
+                    <button class="compile-button" id="compileButton">Compile</button>
+                </div>
+                <div class="compiler">
+                    <div class="header">
+                        <span>Shell</span>
+                        <button class="copy-button" id="copyButton2">Copy</button>
+                    </div>
+                    <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
+                </div>
+            </div>
         </div>
         <div class=""container></div>
         <div class="container">
@@ -118,6 +137,9 @@
                 </nav>
             </div>
         </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
     <script src="scripts.js"></script>
+    <!-- <script src="code-editor.js"></script> -->
 </body>
 </html>
