@@ -33,6 +33,36 @@ document.addEventListener("DOMContentLoaded", function() {
             theme: 'monokai'      // Set the theme to dracula
         });
 
+        function c_to_shell(c_code) {
+            stdoutArr = []
+            let ModuleArgs = {
+              'print': function(text) { stdoutArr.push(text); }, // Capture stdout
+            };
+
+            create_module(ModuleArgs).then((module) => {
+              module.FS.writeFile("code.c", c_code); // write the C code to a file
+              var compile = module.cwrap("compile", "void", ["string"])
+              try {
+                compile("code.c");
+              } catch (e) {
+                if (e instanceof module.ExitStatus && e.status == 0) {
+                  console.log("Compilation successful");
+                } else {
+                  console.log("Failed to compile");
+                }
+              }
+              document.getElementById('output').value = stdoutArr.join("\n");
+            });
+        }
+
+        // Add event listener to the Compile button
+        document.getElementById('compileButton').addEventListener('click', () => {
+            // Get the code from the CodeMirror editor
+            const code = codeEditor.getValue();
+            // Compile the code using pnut-wasm
+            c_to_shell(code);
+        });
+
         // Add event listener to the Copy button
         document.getElementById('copyButton').addEventListener('click', () => {
             // Get the code from the CodeMirror editor
@@ -55,17 +85,5 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        // // Load the pnut-wasm compiler (TODO)
-        // const pnut = await pnutWasm();
-
-        // // Add event listener to the Compile button
-        // document.getElementById('compileButton').addEventListener('click', () => {
-        //     // Get the code from the CodeMirror editor
-        //     const code = codeEditor.getValue();
-        //     // Compile the code using pnut-wasm
-        //     const result = pnut.compile(code, 'c');
-        //     // Display the compilation result in the output textarea
-        //     document.getElementById('output').value = result.stdout || result.stderr;
-        // });
     });
 });

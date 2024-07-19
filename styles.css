@@ -712,6 +712,7 @@ header {
   flex-direction: column;
   background: var(--glass-background); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
+  width: 45%; height: 400px
 }
 
 .editor .header, .compiler .header {
@@ -729,6 +730,7 @@ header {
   margin-right: 0;
   cursor: pointer;
   color: var(--text-950);
+  transition: background 0.3s, box-shadow 0.3s ease-in-out;
 }
 
 .editor .header button:hover, .compiler .header button:hover {
@@ -756,6 +758,8 @@ textarea {
   margin: 10px;
   cursor: pointer;
   color: var(--text-950);
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+  transition: background 0.3s, box-shadow 0.3s ease-in-out;
 }
 
 .compile-button:hover {
