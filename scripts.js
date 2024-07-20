@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to load example code into the editor
     function loadExample(filename) {
-        fetch(filename).then(response => response.text()).then(text => {
+        fetch("examples/" + filename).then(response => response.text()).then(text => {
             codeEditor.setValue(text);
         }).catch(error => {
             console.error('Error loading file:', error);

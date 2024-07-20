@@ -87,11 +87,15 @@
                     <div class="header">
                         <div class="dropdown">
                         <!--Drop down for the value of the files to be displayed-->
-                            <select class="select-btn" id="fileSelect" name="fileSelect" onclick="ExampleMenu()">
+                            <select class="select-btn" id="fileSelect" name="fileSelect">
+                                <option selected disabled hidden>Examples</option>
                                 <option value="sum.c">Sum</option>
-                                <option value="winterpi.c">Winterpi</option>
-                                <option value="fib.c">Fib</option>
-                                <option value="Empty.txt">Empty</option>
+                                <option value="fib.c">Fibonacci</option>
+                                <option value="winterpi.c">Pi</option>
+                                <option value="echo.c">echo</option>
+                                <option value="cat.c">cat</option>
+                                <option value="cp.c">cp</option>
+                                <!-- <option value="empty.c">Empty</option> -->
                             </select>
                         </div>
                         <button class="copy-button" id="copyButton">Copy</button>
