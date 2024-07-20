@@ -695,6 +695,32 @@ header {
   }
 }
 
+.select-btn {
+  font-family: 'Neue Montreal', sans-serif;
+  font-style: normal;
+  padding: 10px;
+  background: var(--glass-background); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  color: var(--text-950);
+  filter: url(#glass-card-effect); /* Apply the SVG filter */
+  transition: background 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+.select-btn:hover {
+  box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+}
+
+/* Optional: Style the options to match */
+.select-btn option {
+  background: var(--glass-background);
+  color: var(--text-950);
+  padding: 10px;
+  border-radius: 5px;
+}
 
 .editor-container {
   display: flex;

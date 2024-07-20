@@ -85,7 +85,15 @@
             <div class="editor-container">
                 <div class="editor">
                     <div class="header">
-                        <span>Text Editor</span>
+                        <div class="dropdown">
+                        <!--Drop down for the value of the files to be displayed-->
+                            <select class="select-btn" id="fileSelect" name="fileSelect" onclick="ExampleMenu()">
+                                <option value="sum.c">Sum</option>
+                                <option value="winterpi.c">Winterpi</option>
+                                <option value="fib.c">Fib</option>
+                                <option value="Empty.txt">Empty</option>
+                            </select>
+                        </div>
                         <button class="copy-button" id="copyButton">Copy</button>
                     </div>
                     <textarea id="code" name="code" placeholder="int main() { }"></textarea>
@@ -140,6 +148,7 @@
         </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/shell/shell.min.js"></script>
     <script src="scripts.js"></script>
     <!-- <script src="code-editor.js"></script> -->
 </body>
