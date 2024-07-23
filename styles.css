@@ -757,6 +757,11 @@ select {
   border-radius: 0%;
 }
 
+.editor-title {
+  padding-left: 88px;
+  padding-right: 88px;
+}
+
 .editor-container {
   display: flex;
   justify-content: center;
