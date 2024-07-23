@@ -153,7 +153,6 @@
 }
 
 html {
-  /* Smooth scrolling behavior */
   scroll-behavior: smooth;
 }
 
@@ -165,9 +164,7 @@ body {
   padding: 0;
   background-color: var(--background-50);
   color: var(--text-950);
-  background: var(--background-grain-svg) no-repeat center center fixed;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
 h1 {
@@ -218,7 +215,6 @@ p {
 }
 
 .logo {
-  /* font-family: 'Editorial-Ultrabold', serif; */
   font-family: 'Editorial', sans-serif;
   font-weight: 900;
   font-size: 2rem;
@@ -250,9 +246,18 @@ header {
   margin: 0 auto;
 }
 
-.about-section {
-  font-weight: 500;
-  font-size: 2rem;
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 32px 20px;
+  }
+}
+
+.about-section p{
+  font-size: 1.25rem;
+  font-family: 'Neue Montreal', sans-serif;
+  font-style: normal;
+  margin: 10px;
 }
 
 .container .cards-row {
@@ -278,15 +283,8 @@ header {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* animation: textclip 2s linear infinite; */
   display: inline-block;
 }
-
-/* @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-} */
 
 .nav-links {
   display: flex;
@@ -324,7 +322,14 @@ header {
   border-radius: 5px; /* Rounded rectangle */
   max-width: 80%; /* Set a maximum width */
   margin: 0 auto; /* Center the hero section */
-  /* height: 64vh; Reduced height */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
 }
 
 .hero.hidden {
@@ -346,7 +351,6 @@ header {
   font-family: 'Editorial-light', serif;
   font-weight: 200;
   padding: 0;
-  /* margin-bottom: 0.5rem; Adjusted margin for better spacing */
 }
 
 .hero-left h2 {
@@ -405,7 +409,6 @@ header {
   cursor: pointer;
   background-size: cover;
   background-repeat: no-repeat;
-  /* box-shadow: 0 8px 16px var(--glass-shadow), 0 10px 30px var(--glass-glow); */
   box-shadow: 0 0 5px 0px rgba(255, 255, 255, 0.2) inset, 0 5px 5px rgba(255, 255, 255, 0.2) inset;
   filter: url(#glass-card-effect); /* Apply the SVG filter */
 }
@@ -430,16 +433,18 @@ header {
 
 .content {
   padding: 10px 10%;
-  background-color: var(--background-50);
-  background: var(--background-grain-svg) no-repeat center center fixed;
-  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .content h4{
+    text-align: center;
+  }
 }
 
 .cards-row {
   display: flex;
   justify-content: center; /* Center the cards horizontally */
   gap: 60px; /* Adjust gap as needed */
-  /* padding: 24px 5%; */
   max-width: 80%;
   margin: 0 auto;
   flex-wrap: nowrap; /* Prevent wrapping */
@@ -466,7 +471,9 @@ header {
   border: 1px solid var(--glass-border); /* Subtle border */
   box-shadow: 0 4px 6px var(--glass-shadow); /* Soft shadow for depth */
   filter: url(#glass-card-effect); /* Apply the SVG filter */
-}
+  overflow: hidden;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1.0) 70%, transparent 100%);
+  }
 
 .card:hover {
   transform: translateY(-5px);
@@ -490,15 +497,6 @@ header {
   margin-bottom: 20px;
 }
 
-@keyframes borderGrow {
-  from {
-    width: 45%;
-  }
-  to {
-    width: 75%;
-  }
-}
-
 .card-header h5 {
   font-family: 'Editorial-light', serif;
   border-bottom: var(--text-950) .5px solid;
@@ -518,45 +516,13 @@ header {
   align-items: center;
 }
 
-.square-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  width: 650px; /* Adjust width to fit inside the monitor screen */
-  height: 450px; /* Adjust height to fit inside the monitor screen */
-  border-radius: 10px;
-  text-align: center;
-  color: var(--text-950);
-  backdrop-filter: blur(10px); /* Blur effect */
-  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-  background: var(--glass-background); /* Semi-transparent background */
-  border: 1px solid var(--glass-border); /* Subtle border */
-  box-shadow: 0 4px 6px var(--glass-shadow); /* Soft shadow for depth */
-  background-size: cover;
-  background-repeat: no-repeat;
-  box-shadow: 0 8px 16px var(--glass-shadow), 0 10px 30px var(--glass-glow);
-  box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2) inset, 0 10px 10px rgba(255, 255, 255, 0.2) inset;
-  filter: url(#glass-card-effect); /* Apply the SVG filter */
-}
-
-.square-card-header {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.square-card-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%; /* Ensure content is centered vertically */
-}
-
 @media (max-width: 768px) {
-  .square-card {
-    width: 90%; /* Adjust for smaller screens */
-    height: auto; /* Adjust for smaller screens */
+  .cards-row {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 50%;
   }
 }
 
@@ -579,9 +545,7 @@ header {
 
 .large-card:hover {
   transform: translateY(-5px);
-  /*box shadow and  glow effect from below and bottom */
   box-shadow: 0 8px 16px var(--glass-shadow), 0 10px 30px var(--glass-glow);
-  /*add inner glow just in bottom of the card */
   box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2) inset;
 }
@@ -672,14 +636,42 @@ header {
 }
 
 @media (max-width: 768px) {
+  header {
+    padding-top: 20px;
+  }
+
+  .nav-container {
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
   .hero {
     flex-direction: column;
-    text-align: center;
     padding: 60px 20px;
   }
 
   .hero-left {
-    margin: 20px 0;
+    text-align: center;
+  }
+
+  .hero-left h2 {
+    padding-right: 16%;
+  }
+  .hero-right {
+    position: relative;
+    top: auto;
+    bottom: 0px;
+    /* right: auto; */
+    transform: translateX(8%);
+    max-width: 90%;
+    width: 90%;
+    padding: 5px;
   }
 
   .content {
@@ -736,7 +728,6 @@ select {
   box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
 }
 
-/* Optional: Style the options to match */
 .select-btn option {
   border: none;
   background-color: #1a1a1a;
@@ -746,7 +737,6 @@ select {
   appearance: none; /* Remove default appearance */
 }
 
-/* Make the specific option larger */
 .select-btn option[selected][disabled][hidden] {
   border: none;
   font-size: 1.2rem; /* Increase the font size */
@@ -815,21 +805,13 @@ textarea {
 }
 
 .compile-button {
-  font-family: 'Neue Montreal', sans-serif;
-  font-size: 1rem;
-  padding: 20px;
   background: transparent;
-  backdrop-filter: blur(10px); /* Blur effect */
-  border: none;
   border-radius: 2px;
-  padding-top: 12px;
-  padding-bottom: 20px;
-  margin: 6px;
+  padding: 8px;
+  margin: 0px;
   cursor: pointer;
   color: var(--text-950);
-  filter: url(#glass-card-effect); /* Apply the SVG filter */
   transition: background 0.3s, box-shadow 0.3s ease-in-out;
-  height: 10%;
 }
 
 .copy-button {
@@ -846,8 +828,22 @@ textarea {
   box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
 }
 
+button:active {
+  transform: translateY(2px);
+}
+
 .copy-button:hover {
   box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+}
+
+@media (max-width: 768px) {
+  .editor-container {
+    flex-direction: column;
+  }
+
+  .editor, .compiler {
+    width: 100%;
+  }
 }
 
 .shell-header {
@@ -862,7 +858,6 @@ textarea {
   margin: 0 0 10px 0;
 }
 
-/* Custom dropdown arrow for Webkit browsers */
 .select-btn::-webkit-inner-spin-button,
 .select-btn::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -873,12 +868,20 @@ textarea {
 .select-btn::-moz-appearance: none;
 .select-btn::-ms-expand {
   appearance: none;
-  border: none; /* Remove border */
+  border: none;
 }
 
-/* Remove the border and outline from the select dropdown */
 .select-btn:focus {
   outline: none;
-  box-shadow: none; /* Remove any box shadow */
-  border: none; /* Remove any border */
+  box-shadow: none;
+  border: none;
+}
+
+/* Show footer on mobile */
+@media screen and (max-width: 768px) {
+  .footer-left {
+    display: block;
+    text-align: center;
+  }
+
 }

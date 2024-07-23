@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // make both textareas larger
-    codeEditor.setSize(500, 500);
-    outputEditor.setSize(500, 500);
+    codeEditor.setSize(null, 500);
+    outputEditor.setSize(null, 500);
 
     // Function to load example code into the editor
     function loadExample(filename) {
@@ -89,16 +89,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listener to the Copy button
     document.getElementById('copyButton').addEventListener('click', () => {
         const code = codeEditor.getValue();
-        navigator.clipboard.writeText(code).then(() => {
-            alert('Code copied to clipboard');
-        });
+        navigator.clipboard.writeText(code);
     });
 
     // Add event listener to the Copy button for the compiler output
     document.getElementById('copyButton2').addEventListener('click', () => {
         const output = outputEditor.getValue();
-        navigator.clipboard.writeText(output).then(() => {
-            alert('Output copied to clipboard');
-        });
+        navigator.clipboard.writeText(output);
     });
 });
