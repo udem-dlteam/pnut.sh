@@ -2,10 +2,10 @@
 
 PNUT_OPTIONS=""
 PNUT_OPTIONS="$PNUT_OPTIONS -Dsh" # shell backend
-PNUT_OPTIONS="$PNUT_OPTIONS -DSUPPORT_INCLUDE" # take input file name as arg
 PNUT_OPTIONS="$PNUT_OPTIONS -DRT_NO_INIT_GLOBALS" # faster script startups
 PNUT_OPTIONS="$PNUT_OPTIONS -DRT_COMPACT" # More compact but slower runtime. Makes for nicer scripts
 PNUT_OPTIONS="$PNUT_OPTIONS -DNICE_ERR_MSG" # Show token information on unexpected token error
+PNUT_OPTIONS="$PNUT_OPTIONS -DINCLUDE_LINE_NUMBER_ON_ERROR" # Show line/column number on syntax errors
 
 
 emcc ../pnut/pnut-lib.c \
