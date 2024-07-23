@@ -308,6 +308,11 @@ header {
   border-bottom: var(--text-950) 1px solid;
 }
 
+.github-logo {
+  width: 24px;
+  height: 24px;
+}
+
 .hero {
   position: relative;
   display: flex;
