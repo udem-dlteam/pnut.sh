@@ -858,6 +858,10 @@ button:active {
   margin: 0 0 10px 0;
 }
 
+.footer-left a{
+  color: var(--text-950);
+}
+
 .select-btn::-webkit-inner-spin-button,
 .select-btn::-webkit-outer-spin-button {
   -webkit-appearance: none;
