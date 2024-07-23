@@ -34,7 +34,9 @@
                 <div class="hero-right" id="right-text-overlay">
                     <h2>Write portable shell scripts <br> directly in C</h2>
                     <p>No shell scripting required.</p>
-                    <button class="btn-glass">Get Started</button>
+                    <!--On click direct to demo id-->
+                    <button class="btn-glass" onclick="document.getElementById('demo').scrollIntoView();">Try it out</button>
+                    <!--On the click direct to demo id-->
                 </div>
             </div>
         </div>
@@ -80,7 +82,7 @@
     </div>
     <div class="container"></div>
     <section class="content">
-        <h4 class="container" style="font-family: 'Editorial-Light';">Try us out</h4>
+        <h4 class="container" style="font-family: 'Editorial-Light';" id="demo">Try us out</h4>
         <div class="container">
             <div class="editor-container">
                 <div class="editor">
@@ -105,14 +107,14 @@
                 </div>
                 <div class="compiler">
                     <div class="header">
-                        <span>Shell</span>
+                        <span class="shell-header">Shell</span>
                         <button class="copy-button" id="copyButton2">Copy</button>
                     </div>
                     <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
                 </div>
             </div>
         </div>
-        <div class=""container></div>
+        <div class="container"></div>
         <div class="container">
             <div class="cards-row">
                 <div class="large-card benchmarks-card">

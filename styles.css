@@ -165,7 +165,7 @@ body {
   padding: 0;
   background-color: var(--background-50);
   color: var(--text-950);
-  background: var(--background-grain-svg) no-repeat center center / cover;
+  background: var(--background-grain-svg) no-repeat center center fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -367,7 +367,7 @@ header {
   padding: 30px; /* Increased padding for a larger overlay */
   border-radius: 5px; /* Slightly larger border radius */
   max-width: 400px; /* Increased max-width */
-  color: white; /* Text color */
+  color: var(--text-950); /* Text color */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Add some shadow for better separation */
 }
 
@@ -432,6 +432,8 @@ header {
 .content {
   padding: 10px 10%;
   background-color: var(--background-50);
+  background: var(--background-grain-svg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .cards-row {
@@ -442,6 +444,12 @@ header {
   max-width: 80%;
   margin: 0 auto;
   flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.cards-row .large-card {
+  width: 100%;
+  padding: 20px;
+  margin: 0px;
 }
 
 .card{
@@ -554,7 +562,8 @@ header {
 }
 
 .large-card {
-  padding: 20px;
+  width: 100%;
+  padding: 2  0px;
   border-radius: 10px;
   text-align: center;
   flex: 1;
@@ -695,19 +704,33 @@ header {
   }
 }
 
+option {
+  border: none;
+  border-radius: 0%;
+}
+
+select {
+  border: none;
+  border-radius: 0%;
+}
+
 .select-btn {
-  font-family: 'Neue Montreal', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Neue Montreal-Light', sans-serif;
   font-style: normal;
-  padding: 10px;
-  background: var(--glass-background); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px;
+  background: transparent;
+  border: none;
+  border-radius: 2px; /* Slightly rounded corners */
+  margin: 1px;
   cursor: pointer;
   color: var(--text-950);
-  filter: url(#glass-card-effect); /* Apply the SVG filter */
   transition: background 0.3s, box-shadow 0.3s ease-in-out;
+  height: 100%; /* Adjusted for larger size */
+  width: 150px; /* Adjusted for larger size */
+  font-size: 1.2rem; /* Larger font size */
+  padding: 8px 12px; /* Add padding for larger clickable area */
 }
 
 .select-btn:hover {
@@ -716,10 +739,21 @@ header {
 
 /* Optional: Style the options to match */
 .select-btn option {
-  background: var(--glass-background);
+  border: none;
+  background-color: #1a1a1a;
   color: var(--text-950);
-  padding: 10px;
-  border-radius: 5px;
+  padding: 8px 12px; /* Adjust padding for a sleeker look */
+  border-radius: 0px;
+  appearance: none; /* Remove default appearance */
+}
+
+/* Make the specific option larger */
+.select-btn option[selected][disabled][hidden] {
+  border: none;
+  font-size: 1.2rem; /* Increase the font size */
+  font-weight: bold; /* Make it bold if needed */
+  outline: none;
+  border-radius: 0%;
 }
 
 .editor-container {
@@ -730,6 +764,7 @@ header {
 }
 
 .editor, .compiler {
+  font-family: 'Neue Montreal-Light';
   flex: 1;
   margin: 0 10px;
   border: 1px solid var(--glass-border);
@@ -738,30 +773,39 @@ header {
   flex-direction: column;
   background: var(--glass-background); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
-  width: 45%; height: 400px
+  width: 45%;
+  height: 400px;
+}
+
+.compiler {
+  margin-bottom: 0%;
 }
 
 .editor .header, .compiler .header {
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px;
+  align-items: center;
+  padding: 4px 8px; /* Consistent padding */
   background: var(--glass-background); /* Semi-transparent background */
   border-bottom: 1px solid var(--glass-border);
+  height: 10%;
+  font-family: 'Neue Montreal-Light', sans-serif;
+  font-size: 1.2rem; /* Consistent font size */
+  color: var(--text-950); /* Consistent text color */
 }
 
 .editor .header button, .compiler .header button {
-  background: transparent;
-  border: 0.5px var(--glass-border) solid;
-  border-radius: 4px;
-  margin-right: 0;
+  background: var(--glass-background); /* Match background with headers */
+  border: 1px solid var(--glass-border); /* Subtle border */
+  border-radius: 5px;
+  margin: 0;
   cursor: pointer;
-  color: var(--text-950);
+  color: var(--text-950); /* Light text color */
   transition: background 0.3s, box-shadow 0.3s ease-in-out;
 }
 
 .editor .header button:hover, .compiler .header button:hover {
-  background: var(--glass-hover-background); /* Semi-transparent background */
-  box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
 }
 
 textarea {
@@ -776,25 +820,70 @@ textarea {
 }
 
 .compile-button {
-  padding: 10px;
-  background: var(--glass-background); /* Semi-transparent background */
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 1rem;
+  padding: 20px;
+  background: transparent;
   backdrop-filter: blur(10px); /* Blur effect */
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px;
+  border: none;
+  border-radius: 2px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  margin: 6px;
   cursor: pointer;
   color: var(--text-950);
   filter: url(#glass-card-effect); /* Apply the SVG filter */
   transition: background 0.3s, box-shadow 0.3s ease-in-out;
+  height: 10%;
+}
+
+.copy-button {
+  background: transparent;
+  border-radius: 2px;
+  padding: 8px;
+  margin: 0px;
+  cursor: pointer;
+  color: var(--text-950);
+  transition: background 0.3s, box-shadow 0.3s ease-in-out;
 }
 
 .compile-button:hover {
-  background: var(--glass-hover-background); /* Semi-transparent background */
   box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+}
+
+.copy-button:hover {
+  box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+}
+
+.shell-header {
+  margin-left: 2px;
+  border: none;
+  font-size: 1.2rem; /* Increase the font size */
 }
 
 .footer-left {
   font-family: 'Neue Montreal-Light', sans-serif;
   font-style: normal;
   margin: 0 0 10px 0;
+}
+
+/* Custom dropdown arrow for Webkit browsers */
+.select-btn::-webkit-inner-spin-button,
+.select-btn::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select-btn::-webkit-appearance: none;
+.select-btn::-moz-appearance: none;
+.select-btn::-ms-expand {
+  appearance: none;
+  border: none; /* Remove border */
+}
+
+/* Remove the border and outline from the select dropdown */
+.select-btn:focus {
+  outline: none;
+  box-shadow: none; /* Remove any box shadow */
+  border: none; /* Remove any border */
 }
