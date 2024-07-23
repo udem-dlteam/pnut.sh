@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
         readOnly: true
     });
 
+    // make both textareas larger
+    codeEditor.setSize(500, 500);
+    outputEditor.setSize(500, 500);
+
     // Function to load example code into the editor
     function loadExample(filename) {
         fetch("examples/" + filename).then(response => response.text()).then(text => {

@@ -245,8 +245,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 10%;
-  max-width: 1600px;
+  padding: 32px 8%;
+  max-width: 96%;
   margin: 0 auto;
 }
 
@@ -259,7 +259,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -766,19 +765,15 @@ select {
 .editor, .compiler {
   font-family: 'Neue Montreal-Light';
   flex: 1;
-  margin: 0 10px;
+  margin: 0 8px;
   border: 1px solid var(--glass-border);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   background: var(--glass-background); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
-  width: 45%;
-  height: 400px;
-}
-
-.compiler {
-  margin-bottom: 0%;
+  width: 70%;
+  height: 480px;
 }
 
 .editor .header, .compiler .header {
@@ -856,9 +851,9 @@ textarea {
 }
 
 .shell-header {
-  margin-left: 2px;
+  margin-left: 8px;
   border: none;
-  font-size: 1.2rem; /* Increase the font size */
+  font-size: 1.2rem;
 }
 
 .footer-left {
