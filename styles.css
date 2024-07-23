@@ -519,10 +519,11 @@ header {
 @media (max-width: 768px) {
   .cards-row {
     flex-direction: column;
+    padding: 0 16px; /* Add padding to the container */
   }
 
   .card {
-    width: 50%;
+    width: 100%;
   }
 }
 
@@ -649,6 +650,8 @@ header {
   .nav-links {
     margin-bottom: 10px;
     align-items: center;
+    margin-left: 0;
+    justify-content: space-between;
   }
 
   .hero {
@@ -671,7 +674,11 @@ header {
     transform: translateX(8%);
     max-width: 90%;
     width: 90%;
-    padding: 5px;
+    padding: 6px;
+    padding-left:8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .content {
