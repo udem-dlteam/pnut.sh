@@ -895,7 +895,15 @@ button:active {
 
 /* Show footer on mobile */
 @media screen and (max-width: 768px) {
+  footer {
+    display: block;
+  }
   .footer-left {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-right {
     display: block;
     text-align: center;
   }
