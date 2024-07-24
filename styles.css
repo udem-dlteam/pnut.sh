@@ -35,6 +35,8 @@
   --text-900: #d6e7f5;
   --text-950: #ebf3fa;
 
+  --text-accent: #eab948;
+
   --background-50: #0d0d0d;
   --background-100: #1a1a1a;
   --background-200: #333333;
@@ -394,6 +396,14 @@ header {
   margin: 0 auto; /* Center the button */
   width: 40%;
   height: 32%;
+}
+
+.trust-link {
+  color: var(--text-950);
+}
+
+.trust-link:hover {
+  color: var(--text-accent);
 }
 
 .btn-glass {
