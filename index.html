@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥜: A C to POSIX Shell Compiler you can Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
+    <script src="pnut.js"></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="animate-character logo">Pnut</div>
+            <nav class="nav-links">
+                <a href="#about-section">About</a>
+                <a href="https://github.com/udem-dlteam/pnut#install">Install Pnut</a>
+                <a href="#demo">Online Compiler</a>
+                <a href="https://github.com/udem-dlteam/pnut">
+                    <img class="github-logo" src="github-mark/github-mark-white.svg" alt="GitHub">
+                </a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero" id="hero">
+        <div class="hero-left">
+            <h1>Pnut.</h1>
+            <h2>A C to POSIX Shell Compiler <br> you can
+                <a class="trust-link" target="_blank" href="https://dl.acm.org/doi/pdf/10.1145/358198.358210">
+                    <u>Trust</u>
+                </a>
+            </h2>
+        </div>
+        <div class="container">
+            <div>
+                <div class="hero-right" id="right-text-overlay">
+                    <h2>Write portable shell scripts <br> directly in C</h2>
+                    <p>No shell scripting required.</p>
+                    <button class="btn-glass" onclick="document.getElementById('demo').scrollIntoView();">Try Pnut</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" id="about-section"></div>
+    <section id="fade-in-section">
+        <div class="container about-section">
+            <p>Pnut is an C to POSIX shell transpiler that can compile C programs into human-readable shell scripts. This unique approach ensures that your executables are highly portable, running seamlessly on any system with a POSIX-compliant shell. Say goodbye to the constraints of platform-specific binaries and embrace the future of software portability with pnut.</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="cards-row">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Write C</h5>
+                </div>
+                <p>
+                    Write your script in plain-old C, no new language to learn.
+                </p>
+                <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="code.png" alt="Write Image">
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Human readable</h5>
+                </div>
+                <p>
+                    Pnut's output is designed to be human-readable, making it
+                    easy to inspect, debug and maintain code.
+                </p>
+                <div class="card-img-container">
+                    <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="code-shell.png" alt="Compile Image">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Runs everywhere</h5>
+                </div>
+                <p>
+                    Pnut's output runs on any POSIX-compliant shell, from bash to
+                    zsh, across all major operating systems including Linux,
+                    macOS, and Windows.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container"></div>
+    <section class="content">
+        <h4 class="editor-title" style="font-family: 'Editorial-Light';" id="demo">Online Compiler</h4>
+        <div class="container">
+            <div class="editor-container">
+                <div class="editor">
+                    <div class="header">
+                        <div class="dropdown">
+                        <!--Drop down for the value of the files to be displayed-->
+                            <select class="select-btn" id="fileSelect" name="fileSelect">
+                                <option selected disabled hidden>Examples</option>
+                                <option value="sum.c">Sum</option>
+                                <option value="fib.c">Fibonacci</option>
+                                <option value="winterpi.c">Pi</option>
+                                <option value="echo.c">echo</option>
+                                <option value="cat.c">cat</option>
+                                <option value="cp.c">cp</option>
+                                <option value="repl.c">Scheme R4RS REPL</option>
+                                <!-- <option value="empty.c">Empty</option> -->
+                            </select>
+                        </div>
+                        <div>
+                            <button class="compile-button" id="compileButton">Compile</button>
+                            <button class="copy-button" id="copyButton">Copy</button>
+                        </div>
+                    </div>
+                    <textarea id="code" name="code" placeholder="int main() { }"></textarea>
+                </div>
+                <div class="compiler">
+                    <div class="header">
+                        <span class="shell-header">Shell</span>
+                        <button class="copy-button" id="copyButton2">Copy</button>
+                    </div>
+                    <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-left">
+                <div class="logo">Pnut</div>
+                <p>2024 Pnut. Licensed under the <a href="https://opensource.org/licenses/BSD-2-Clause" target="_blank">BSD-2 Clause License</a></p>
+            </div>
+            <div class="footer-right">
+                <nav class="nav-links">
+                <a href="#about-section">About</a>
+                <a href="https://github.com/udem-dlteam/pnut#install">Install Pnut</a>
+                <a href="#demo">Online Compiler</a>
+                <a href="https://github.com/udem-dlteam/pnut">
+                    <img class="github-logo" src="github-mark/github-mark-white.svg" alt="GitHub">
+                </a>
+            </div>
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/shell/shell.min.js"></script>
+    <script src="scripts.js"></script>
+    <!-- <script src="code-editor.js"></script> -->
+</body>
+</html>

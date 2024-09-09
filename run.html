@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pnut Compiler</title>
+  </head>
+  <body>
+    <h1>Pnut Compiler</h1>
+    <p>Write portable shell scripts directly in C, no shell scripting required.</p>
+    <button id="compile-btn">Compile</button>
+    <div style="width: 100%;">
+      <textarea style="width: 45%; height: 200px" id="c-editor"></textarea>
+      <textarea style="width: 45%; height: 200px" id="shell-code"></textarea>
+    </div>
+    <script src="compile.js"> </script>
+    <script>
+      function c_to_shell(c_code) {
+        stdoutArr = []
+        let ModuleArgs = {
+          // 'onExit': function(code) { console.log("calling onExit with: " + code); },
+          // 'noExitRuntime': false,
+          'print': function(text) { stdoutArr.push(text); }, // Capture stdout
+        };
+
+        create_module(ModuleArgs).then((module) => {
+          module.FS.writeFile("code.c", c_code); // write the C code to a file
+          var compile = module.cwrap("compile", "void", ["string"])
+          try {
+            compile("code.c");
+          } catch (e) {
+            if (e instanceof module.ExitStatus && e.status == 0) {
+              console.log("Compilation successful");
+            } else {
+              console.log("Failed to compile");
+            }
+          }
+          document.getElementById('shell-code').value = stdoutArr.join("\n");
+        });
+      }
+
+      document.getElementById("compile-btn").onclick = () => {
+        console.log("Compiling code");
+        var c_code = document.getElementById('c-editor').value;
+        c_to_shell(c_code);
+      }
+    </script>
+  </body>
+</html>
