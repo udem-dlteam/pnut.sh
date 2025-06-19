@@ -1,5 +1,5 @@
 // Date 19/06/2025
-// Pnut commit hash = 'fc8d080dad33b63a85e6a00fb517a3a0844c5453';
+// Pnut commit hash = '50a5954c6214cbd52a6b6c171f846b6494dc6a77';
 // PNUT_OPTIONS = '-DRELEASE_PNUT_SH -DRT_COMPACT';
 var create_module = (() => {
   var _scriptName = typeof document != 'undefined' ? document.currentScript?.src : undefined;
