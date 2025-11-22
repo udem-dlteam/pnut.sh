@@ -1,10 +1,10 @@
 :root[data-theme="dark"] {
-  --background-grain-svg: url('background-grain-dark.svg');
-  --benchmark-grain-svg: url('benchmarks-grain-dark.svg');
-  --hero-background-svg: url('hero.svg');
-  --card-background-svg: url('card-blur-dark.svg');
-  --get-starded-background-hover-svg: url('hero-card-button-dark.svg');
-  --right-overlay-svg: url('hero-right-dark.svg');
+  --background-grain-svg: url('assets/background-grain-dark.svg');
+  --benchmark-grain-svg: url('assets/benchmarks-grain-dark.svg');
+  --hero-background-svg: url('assets/hero.svg');
+  --card-background-svg: url('assets/card-blur-dark.svg');
+  --get-starded-background-hover-svg: url('assets/hero-card-button-dark.svg');
+  --right-overlay-svg: url('assets/hero-right-dark.svg');
 
   --glass-background: rgba(30, 30, 30, 0.3);
   --glass-border: rgba(255, 255, 255, 0.2);
@@ -99,7 +99,7 @@
 /* Editorial regular */
 @font-face {
   font-family: 'Editorial';
-  src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
@@ -107,49 +107,49 @@
 /* Editorial light */
 @font-face {
   font-family: 'Editorial-Light';
-  src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Regular.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Editorial-UltraLight';
-  src: url('fonts/PPEditorialNew-Ultralight.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Ultralight.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Editorial-Ultrabold';
-  src: url('fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal';
-  src: url('fonts/NeueMontreal-Regular.otf') format('opentype');
+  src: url('assets/fonts/NeueMontreal-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal-Light';
-  src: url('fonts/NeueMontreal-Light.otf') format('opentype');
+  src: url('assets/fonts/NeueMontreal-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal Mono';
-  src: url('fonts/PPNeueMontrealMono-Book.otf') format('opentype');
+  src: url('assets/fonts/PPNeueMontrealMono-Book.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal Mono-Thin';
-  src: url('fonts/PPNeueMontrealMono-Thin.otf') format('opentype');
+  src: url('assets/fonts/PPNeueMontrealMono-Thin.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
