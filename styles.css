@@ -447,7 +447,7 @@ header {
 
 
 .content {
-  padding: 10px 10%;
+  padding: 10px 10px;
 }
 
 @media (max-width: 768px) {
@@ -768,8 +768,8 @@ select {
 }
 
 .editor-title {
-  padding-left: 88px;
-  padding-right: 88px;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 .editor-container {
@@ -870,6 +870,7 @@ button:active {
 
   .editor, .compiler {
     width: 100%;
+    margin: 8px 0;
   }
 }
 
