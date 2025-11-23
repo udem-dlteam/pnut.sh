@@ -789,7 +789,7 @@ select {
   flex-direction: column;
   background: var(--glass-background); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
-  width: 70%;
+  min-width: 0; /* Prevent overflow: https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container */
   height: 480px;
 }
 
