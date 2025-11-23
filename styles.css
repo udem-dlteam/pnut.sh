@@ -1,10 +1,10 @@
 :root[data-theme="dark"] {
-  --background-grain-svg: url('background-grain-dark.svg');
-  --benchmark-grain-svg: url('benchmarks-grain-dark.svg');
-  --hero-background-svg: url('hero.svg');
-  --card-background-svg: url('card-blur-dark.svg');
-  --get-starded-background-hover-svg: url('hero-card-button-dark.svg');
-  --right-overlay-svg: url('hero-right-dark.svg');
+  --background-grain-svg: url('assets/background-grain-dark.svg');
+  --benchmark-grain-svg: url('assets/benchmarks-grain-dark.svg');
+  --hero-background-svg: url('assets/hero.svg');
+  --card-background-svg: url('assets/card-blur-dark.svg');
+  --get-starded-background-hover-svg: url('assets/hero-card-button-dark.svg');
+  --right-overlay-svg: url('assets/hero-right-dark.svg');
 
   --glass-background: rgba(30, 30, 30, 0.3);
   --glass-border: rgba(255, 255, 255, 0.2);
@@ -99,7 +99,7 @@
 /* Editorial regular */
 @font-face {
   font-family: 'Editorial';
-  src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
@@ -107,49 +107,49 @@
 /* Editorial light */
 @font-face {
   font-family: 'Editorial-Light';
-  src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Regular.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Editorial-UltraLight';
-  src: url('fonts/PPEditorialNew-Ultralight.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Ultralight.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Editorial-Ultrabold';
-  src: url('fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
+  src: url('assets/fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal';
-  src: url('fonts/NeueMontreal-Regular.otf') format('opentype');
+  src: url('assets/fonts/NeueMontreal-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal-Light';
-  src: url('fonts/NeueMontreal-Light.otf') format('opentype');
+  src: url('assets/fonts/NeueMontreal-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal Mono';
-  src: url('fonts/PPNeueMontrealMono-Book.otf') format('opentype');
+  src: url('assets/fonts/PPNeueMontrealMono-Book.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neue Montreal Mono-Thin';
-  src: url('fonts/PPNeueMontrealMono-Thin.otf') format('opentype');
+  src: url('assets/fonts/PPNeueMontrealMono-Thin.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
@@ -447,7 +447,7 @@ header {
 
 
 .content {
-  padding: 10px 10%;
+  padding: 10px 10px;
 }
 
 @media (max-width: 768px) {
@@ -768,8 +768,8 @@ select {
 }
 
 .editor-title {
-  padding-left: 88px;
-  padding-right: 88px;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 .editor-container {
@@ -789,7 +789,7 @@ select {
   flex-direction: column;
   background: var(--glass-background); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
-  width: 70%;
+  min-width: 0; /* Prevent overflow: https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container */
   height: 480px;
 }
 
@@ -831,7 +831,7 @@ textarea {
   color: #ffae00; /* OG light amber */
 }
 
-.compile-button {
+.editor-button {
   background: transparent;
   border-radius: 2px;
   padding: 8px;
@@ -841,17 +841,7 @@ textarea {
   transition: background 0.3s, box-shadow 0.3s ease-in-out;
 }
 
-.copy-button {
-  background: transparent;
-  border-radius: 2px;
-  padding: 8px;
-  margin: 0px;
-  cursor: pointer;
-  color: var(--text-950);
-  transition: background 0.3s, box-shadow 0.3s ease-in-out;
-}
-
-.compile-button:hover {
+.editor-button:hover {
   box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
 }
 
@@ -859,8 +849,131 @@ button:active {
   transform: translateY(2px);
 }
 
-.copy-button:hover {
-  box-shadow: 0 4px 6px var(--glass-hover-shadow); /* Soft shadow for depth */
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--glass-background);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px var(--glass-shadow);
+  margin: 10% auto;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  color: var(--text-950);
+  animation: modalFadeIn 0.1s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 1.2em;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-950);
+  cursor: pointer;
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s, opacity 0.3s;
+}
+
+.modal-close img {
+  width: 16px;
+  height: 16px;
+  transition: filter 0.3s;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.option-group {
+  margin-bottom: 20px;
+}
+
+.option-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 500;
+}
+
+.option-group input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-950);
+  font-family: 'Neue Montreal', sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.option-group input[type="text"]:focus {
+  outline: none;
+  border-color: var(--text-950);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.option-group input[type="text"]::placeholder {
+  color: rgba(var(--text-950-rgb), 0.6);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.modal-footer .editor-button {
+  padding: 8px 16px;
+  min-width: 70px;
 }
 
 @media (max-width: 768px) {
@@ -870,6 +983,7 @@ button:active {
 
   .editor, .compiler {
     width: 100%;
+    margin: 8px 0;
   }
 }
 

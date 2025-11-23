@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A C to POSIX Shell Compiler you can Trust</title>
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/monokai.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
-    <script src="pnut.js"></script>
+    <script src="pnut_standard.js"></script>
+    <script src="pnut_compact.js"></script>
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
                 <a href="https://github.com/udem-dlteam/pnut#install">Install Pnut</a>
                 <a href="#demo">Online Compiler</a>
                 <a href="https://github.com/udem-dlteam/pnut">
-                    <img class="github-logo" src="github-mark/github-mark-white.svg" alt="GitHub">
+                    <img class="github-logo" src="assets/github-mark/github-mark-white.svg" alt="GitHub">
                 </a>
             </nav>
         </div>
@@ -62,7 +63,7 @@
                 <p>
                     Write your script in plain-old C, no new language to learn.
                 </p>
-                <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="code.png" alt="Write Image">
+                <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="assets/code.png" alt="Write Image">
             </div>
             <div class="card">
                 <div class="card-header">
@@ -73,7 +74,7 @@
                     easy to inspect, debug and maintain code.
                 </p>
                 <div class="card-img-container">
-                    <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="code-shell.png" alt="Compile Image">
+                    <img style="width:100%; margin-top:auto; margin-bottom:auto;" src="assets/code-shell.png" alt="Compile Image">
                 </div>
             </div>
             <div class="card">
@@ -96,7 +97,7 @@
                 <div class="editor">
                     <div class="header">
                         <div class="dropdown">
-                        <!--Drop down for the value of the files to be displayed-->
+                            <!--Drop down for the value of the files to be displayed-->
                             <select class="select-btn" id="fileSelect" name="fileSelect">
                                 <option selected disabled hidden>Examples</option>
                                 <option value="sum.c">Sum</option>
@@ -110,8 +111,9 @@
                             </select>
                         </div>
                         <div>
-                            <button class="compile-button" id="compileButton">Compile</button>
-                            <button class="copy-button" id="copyButton">Copy</button>
+                            <button class="editor-button" id="optionsButton">Options</button>
+                            <button class="editor-button" id="compileButton">Compile</button>
+                            <button class="editor-button" id="copyButtonC">Copy</button>
                         </div>
                     </div>
                     <textarea id="code" name="code" placeholder="int main() { }"></textarea>
@@ -119,13 +121,38 @@
                 <div class="compiler">
                     <div class="header">
                         <span class="shell-header">Shell</span>
-                        <button class="copy-button" id="copyButton2">Copy</button>
+                        <button class="editor-button" id="copyButtonShell">Copy</button>
                     </div>
                     <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Options Modal -->
+    <div id="optionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compiler Options</h3>
+                <button class="modal-close" id="closeModal">
+                    <img src="assets/close-x.svg" alt="Close" width="16" height="16">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="option-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="compactCode" name="compactCode"/>
+                        Compact shell runtime
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="editor-button" id="saveOptions">Save</button>
+                <button class="editor-button" id="resetOptions">Reset</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-left">
@@ -138,13 +165,13 @@
                 <a href="https://github.com/udem-dlteam/pnut#install">Install Pnut</a>
                 <a href="#demo">Online Compiler</a>
                 <a href="https://github.com/udem-dlteam/pnut">
-                    <img class="github-logo" src="github-mark/github-mark-white.svg" alt="GitHub">
+                    <img class="github-logo" src="assets/github-mark/github-mark-white.svg" alt="GitHub">
                 </a>
             </div>
         </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/shell/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/shell/shell.min.js"></script>
     <script src="scripts.js"></script>
     <!-- <script src="code-editor.js"></script> -->
 </body>

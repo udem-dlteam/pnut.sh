@@ -58,13 +58,21 @@ document.addEventListener("DOMContentLoaded", function() {
         loadExample(selectedFile);
     });
 
-    function c_to_shell(c_code) {
+    function c_to_shell(compact, c_code) {
         stdoutArr = [];
         let ModuleArgs = {
           'print': function(text) { stdoutArr.push(text); },
         };
 
-        create_module(ModuleArgs).then((module) => {
+        let module_func;
+
+        if (compact) {
+            module_func = create_pnut_compact_module;
+        } else {
+            module_func = create_pnut_standard_module;
+        }
+
+        module_func(ModuleArgs).then((module) => {
           module.FS.writeFile("code.c", c_code);
           var compile = module.cwrap("compile", "void", ["string"]);
           try {
@@ -80,20 +88,77 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Options modal functionality
+    const optionsModal = document.getElementById('optionsModal');
+    const closeModal = document.getElementById('closeModal');
+    const saveOptions = document.getElementById('saveOptions');
+    const resetOptions = document.getElementById('resetOptions');
+    const compactCodeCheckbox = document.getElementById('compactCode');
+
+    // Load saved options from localStorage
+    function loadOptions() {
+        // TODO: Make it default to true
+        compactCodeCheckbox.checked = (localStorage.getItem('compactCode') || 'true') === 'true';
+    }
+
+    // Save options to localStorage
+    function saveOptionsToStorage() {
+        localStorage.setItem('compactCode', compactCodeCheckbox.checked);
+    }
+
+    // Reset options to defaults
+    function resetOptionsToDefaults() {
+        compactCodeCheckbox.checked = false;
+        saveOptionsToStorage();
+    }
+
+    // Show modal
+    function showModal() {
+        optionsModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    // Hide modal
+    function hideModal() {
+        saveOptionsToStorage();
+        optionsModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore background scrolling
+    }
+
+    // Options modal event handlers
+    document.getElementById('optionsButton').addEventListener('click', () => { showModal(); });
+    closeModal.addEventListener('click', () => { hideModal(); });
+    resetOptions.addEventListener('click', () => { resetOptionsToDefaults(); });
+    saveOptions.addEventListener('click', () => { hideModal(); });
+
+    // Close modal when clicking outside of it
+    optionsModal.addEventListener('click', (e) => {
+        if (e.target === optionsModal) hideModal();
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && optionsModal.style.display === 'block') hideModal();
+    });
+
+    // Load options on page load
+    loadOptions();
+
     // Add event listener to the Compile button
     document.getElementById('compileButton').addEventListener('click', () => {
         const code = codeEditor.getValue();
-        c_to_shell(code);
+        const compact = document.getElementById('compactCode').checked;
+        c_to_shell(compact, code);
     });
 
     // Add event listener to the Copy button
-    document.getElementById('copyButton').addEventListener('click', () => {
+    document.getElementById('copyButtonC').addEventListener('click', () => {
         const code = codeEditor.getValue();
         navigator.clipboard.writeText(code);
     });
 
     // Add event listener to the Copy button for the compiler output
-    document.getElementById('copyButton2').addEventListener('click', () => {
+    document.getElementById('copyButtonShell').addEventListener('click', () => {
         const output = outputEditor.getValue();
         navigator.clipboard.writeText(output);
     });
