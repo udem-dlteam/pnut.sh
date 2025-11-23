@@ -96,7 +96,7 @@
                 <div class="editor">
                     <div class="header">
                         <div class="dropdown">
-                        <!--Drop down for the value of the files to be displayed-->
+                            <!--Drop down for the value of the files to be displayed-->
                             <select class="select-btn" id="fileSelect" name="fileSelect">
                                 <option selected disabled hidden>Examples</option>
                                 <option value="sum.c">Sum</option>
@@ -110,8 +110,9 @@
                             </select>
                         </div>
                         <div>
-                            <button class="compile-button" id="compileButton">Compile</button>
-                            <button class="copy-button" id="copyButton">Copy</button>
+                            <button class="editor-button" id="optionsButton">Options</button>
+                            <button class="editor-button" id="compileButton">Compile</button>
+                            <button class="editor-button" id="copyButtonC">Copy</button>
                         </div>
                     </div>
                     <textarea id="code" name="code" placeholder="int main() { }"></textarea>
@@ -119,13 +120,38 @@
                 <div class="compiler">
                     <div class="header">
                         <span class="shell-header">Shell</span>
-                        <button class="copy-button" id="copyButton2">Copy</button>
+                        <button class="editor-button" id="copyButtonShell">Copy</button>
                     </div>
                     <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Options Modal -->
+    <div id="optionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compiler Options</h3>
+                <button class="modal-close" id="closeModal">
+                    <img src="assets/close-x.svg" alt="Close" width="16" height="16">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="option-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="compactCode" name="compactCode"/>
+                        Compact shell runtime
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="editor-button" id="saveOptions">Save</button>
+                <button class="editor-button" id="resetOptions">Reset</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-left">
