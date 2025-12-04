@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loadExample(selectedFile);
     });
 
-    function c_to_shell(compact, c_code) {
+    function c_to_shell(compact, annotate, c_code) {
         stdoutArr = [];
         let ModuleArgs = {
           'print': function(text) { stdoutArr.push(text); },
@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         module_func(ModuleArgs).then((module) => {
           module.FS.writeFile("code.c", c_code);
-          var compile = module.cwrap("compile", "void", ["string"]);
+          var compile = module.cwrap("compile", "void", ["number", "string"]);
           try {
-            compile("code.c");
+            compile(annotate, "code.c");
           } catch (e) {
             if (e instanceof module.ExitStatus && e.status == 0) {
               console.log("Compilation successful");
@@ -94,21 +94,38 @@ document.addEventListener("DOMContentLoaded", function() {
     const saveOptions = document.getElementById('saveOptions');
     const resetOptions = document.getElementById('resetOptions');
     const compactCodeCheckbox = document.getElementById('compactCode');
+    const annotateCodeCheckbox = document.getElementById('annotateCode');
+
+    const default_options = {
+        compactCode: false,
+        annotateCode: false,
+    };
 
     // Load saved options from localStorage
+    function loadBoolOption(key, defaultValue) {
+        const value = localStorage.getItem(key);
+        if (value === null) {
+            return defaultValue;
+        } else {
+            return (value == 'true');
+        }
+    }
+
     function loadOptions() {
-        // TODO: Make it default to true
-        compactCodeCheckbox.checked = (localStorage.getItem('compactCode') || 'true') === 'true';
+        compactCodeCheckbox.checked = loadBoolOption('compactCode', true);
+        annotateCodeCheckbox.checked = loadBoolOption('annotateCode', true);
     }
 
     // Save options to localStorage
     function saveOptionsToStorage() {
         localStorage.setItem('compactCode', compactCodeCheckbox.checked);
+        localStorage.setItem('annotateCode', annotateCodeCheckbox.checked);
     }
 
     // Reset options to defaults
     function resetOptionsToDefaults() {
-        compactCodeCheckbox.checked = false;
+        compactCodeCheckbox.checked = default_options.compactCode;
+        annotateCodeCheckbox.checked = default_options.annotateCode;
         saveOptionsToStorage();
     }
 
@@ -148,7 +165,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('compileButton').addEventListener('click', () => {
         const code = codeEditor.getValue();
         const compact = document.getElementById('compactCode').checked;
-        c_to_shell(compact, code);
+        const annotate = document.getElementById('annotateCode').checked;
+        c_to_shell(compact, annotate, code);
     });
 
     // Add event listener to the Copy button

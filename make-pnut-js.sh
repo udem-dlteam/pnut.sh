@@ -2,7 +2,7 @@
 
 set -e -u
 
-PNUT_OPTIONS="-Dsh -DNICE_UX -DNO_COLOR -DSAFE_MODE" # shell backend in release mode
+PNUT_OPTIONS="-Dsh -DNICE_UX -DNO_COLOR -DSAFE_MODE -DSH_INCLUDE_C_CODE" # shell backend in release mode
 PNUT_OPTIONS_COMPACT="$PNUT_OPTIONS -DRT_COMPACT" # More compact but slower runtime. Makes for nicer scripts
 
 readonly cur_dir=$(pwd)
